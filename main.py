@@ -30,6 +30,7 @@ class ImageViewer(QMainWindow):
         self.img_label = QLabel()
         self.img_label.setBackgroundRole(QPalette.Base)
 #        self.img_label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored);
+
         self.img_label.setScaledContents(True)
         self.scroll_area = QScrollArea()
 
@@ -234,19 +235,6 @@ class ImageViewer(QMainWindow):
         # print(f'numpixel {numPixels} numDegrees {numDegrees}')
 
 
-class ImageWidget(QScrollArea):
-
-    def __init__(self):
-        super(ImageWidget, self).__init__()
-        self.image = None   # type: Image
-        self.scale_factor = 1.0
-
-    def wheelEvent(self, event: QWheelEvent) -> None:
-        num_pixels = event.pixelDelta()
-        num_degrees = event.angleDelta() / 8
-        if self.image and event.modifiers() == Qt.ControlModifier:
-           self.scaleImage(num_degrees / 20)
-        # print(f'numpixel {numPixels} numDegrees {numDegrees}')
 
 
 if __name__ == "__main__":
