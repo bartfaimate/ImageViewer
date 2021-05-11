@@ -37,7 +37,7 @@ EXTENSIONS = {'.tif', '.tiff', '.bmp', '.jpg', '.jpeg', '.png', '.raw', '.arw', 
 RAW_EXTENSIONS = {'.erf', '.raw', '.arw', '.erf', '.pef', '.orf'}
 ReverseExifTags = {v: k for k, v in ExifTags.TAGS.items()}
 
-ROTATION_CODES = {0x3: 180, 0x6: 270, 0x8: 90}
+ROTATION_CODES = {0x1: 0, 0x3: 180, 0x6: 270, 0x8: 90}
 
 FLASH_CODES = {
     0x0: 'No Flash',
@@ -74,6 +74,14 @@ WHITE_BALANCE_CODES = {
     0x1: 'Manual'
 }
 
+COLOR_SPACE = {
+    0x1: 'sRGB',
+    0x2: 'Adobe RGB',
+    0xfffd: 'Wide Gamut RGB',
+    0xfffe: 'ICC Profile',
+    0xffff: 'Uncalibrated',
+}
+
 
 class ExifKeys(Enum):
     MAKE = 'Make'
@@ -90,5 +98,6 @@ class ExifKeys(Enum):
     WHITE_BALANCE = 'WhiteBalance'
     IMAGE_WIDTH = 'ExifImageWidth'
     IMAGE_HEIGHT = 'ExifImageHeight'
+    COLOR_SPACE = 'ColorSpace'
 
 

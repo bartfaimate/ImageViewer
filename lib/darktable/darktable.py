@@ -1,5 +1,5 @@
 from argparse import PARSER
-from lib.darktable.exceptions import WrongImageFormat
+from .exceptions import WrongImageFormat
 from pathlib import Path
 from typing import List, Union, Any
 import datetime as dt
